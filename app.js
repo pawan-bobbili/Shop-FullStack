@@ -12,13 +12,13 @@ const AdminRoutes = require("./routes/admin");
 const ShopRoutes = require("./routes/shop");
 const AuthRoutes = require("./routes/auth.js");
 const ErrorController = require("./controllers/error.js");
+const keys = require("./apikeys");
 
 const mongoose = require("mongoose");
 
 const app = express();
 const store = new MongoStore({
-  uri:
-    "mongodb+srv://node-user:Karnal18@cluster0-sgm7m.mongodb.net/shop?retryWrites=true&w=majority",
+  uri: keys.mongoURI,
   collection: "sessions",
 });
 const csrfProtection = csrf();
@@ -57,7 +57,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "image")));
 app.use(
   session({
-    secret: "Karnal@18",
+    secret: keys.sessionSecret,
     saveUninitialized: false,
     resave: false,
     store: store,
@@ -100,9 +100,7 @@ app.use((err, req, res, next) => {
   });
 });
 mongoose
-  .connect(
-    "mongodb+srv://node-user:Karnal18@cluster0-sgm7m.mongodb.net/shop?retryWrites=true&w=majority"
-  )
+  .connect(keys.mongoURI)
   .then(() => {
     console.log("Connected");
     app.listen(3000);

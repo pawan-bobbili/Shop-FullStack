@@ -2,6 +2,7 @@
 
 # dependencies
 node_modules
+apikeys.js
 package-lock.json
 ./node_modules
 /node_modules

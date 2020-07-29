@@ -1,0 +1,19 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <h1><%= pagetitle %></h1>
+        <% if (!products || products.length == 0) { %>
+            <h2>Go . Add Some Products</h2>
+        <% } else { %>
+                <% for (let product of products) { %>
+                    <div>
+                    <p><%= product.title %>     <%= product.Quantity %> <form action="/cart/delete" method="POST"><input type = "hidden" name = "productid" value = "<%= product._id.toString() %>"><input type = "hidden" name = "_csrf" value = "<%= csrfToken %>"><button type = "submit">Delete From Cart</button></form></p>
+                    </div>
+                <% } %>    
+                <form action="/add-orders" method="POST"><input type = "hidden" name = "_csrf" value = "<%= csrfToken %>"><button type="submit">Order Now</button></form>
+            <% } %>    
+    </main>
+    
+    <%- include('../includes/end.ejs') %>

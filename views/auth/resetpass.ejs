@@ -1,0 +1,12 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+      <form action = "/resetpass" method = "POST">
+        <input type = "hidden" name = "_csrf" value = "<%= csrfToken %>">
+        <div>Email For Confirmation<input type = "text" name = "email" ></div>
+        <div><button type = "submit">Send Link</button>
+      </form>
+    </main>
+<%- include('../includes/end.ejs') %>

@@ -1,0 +1,17 @@
+body {
+    padding: 1rem;
+    margin: 1rem;
+}
+.main-header{
+    width:100%;
+    height: 3.5rem;
+    background-color: green;
+}
+.main-header_item-list {
+    margin: 1rem;
+    display: flex;
+}
+.main-header_item-list_a {
+    margin: 1rem;
+    padding : 1rem;
+}

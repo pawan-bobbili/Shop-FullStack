@@ -1,0 +1,44 @@
+<header class="main-header">
+    <nav>
+        <ul class="main-header_item-list">
+            <li class="main-header_item-list_a">
+                <a href = '/'>Shop</a>
+            </li>
+            
+            <li class="main-header_item-list_a">
+                <a href = '/products'>Products</a>
+            </li>
+            <% if(logged) { %>
+                <li class="main-header_item-list_a">
+                    <a href ='/admin/add-product'>Add Product</a>
+                </li>
+           
+                <li class="main-header_item-list_a">
+                    <a href ='/admin/products'>Admin Products</a>
+                </li>
+            
+                <li class="main-header_item-list_a">
+                    <a href = '/cart'>Cart</a>
+                </li>
+            
+                <li class="main-header_item-list_a">
+                    <a href = '/orders'>Orders</a>
+                </li>
+                
+                <li class="main-header_item-list_a">
+                    <a href = '/logout'>Logout</a>
+                </li>
+            <% } else { %> 
+                <li class = "main-header_item-list_a">
+                    <a href="/login">Login</a>
+                </li>
+                <li class = "main-header_item-list_a">
+                    <a href = "/signup">SignUp</a> 
+                </li>
+            <% } %>
+            <li class="main-header_item-list_a">
+                <a href = 'http://localhost:3030'>False</a>
+            </li>
+        </ul>
+    </nav>
+</header>

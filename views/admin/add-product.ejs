@@ -1,0 +1,20 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <h2><%= pagetitle %></h2>
+        <form action='/admin/product' method='POST' enctype="multipart/form-data">
+            <div>Title Of the Product<pre><input type = "text" name = "title" value = "<%= title %>"> <%= titleError %> </pre></div>
+            <br>
+            <div>Image<pre><input type = "file" name = "image"></pre></div>
+            <br>
+            <div>Price<pre><input type = "text" name = "price" value = "<%= price %>"><%= priceError %></pre></div>
+            <br>
+            <div>Description<pre><input type = "text" name = "dsc" value = "<%= dsc %>"><%= dscError %></pre></div>
+            <input type = "hidden" name = "id" value = "<%= id %>">
+            <input type = "hidden" name = "_csrf" value = "<%= csrfToken %>">
+            <button type = "submit"><%= pagetitle %></button>
+        </form>
+    </main>
+<%- include('../includes/end.ejs') %>

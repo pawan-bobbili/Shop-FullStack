@@ -1,0 +1,20 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+      <form action='/login' method="POST">
+        <% if(loginmsg) { %>
+          <br>
+          <div><%= loginmsg %></div>
+        <% } %>
+        <br>
+        <div>Email<pre></pre><input type = "text" name="email" value="<%= email %>"></div>
+        <br>
+        <div>Password<pre></pre><input type="password" name="password" value=""></div>
+        <input type = "hidden" name = "_csrf" value = "<%= csrfToken %>">
+        <br>
+        <pre><button type = "submit" >Login</button> <a href = "/resetpass">Fogot Password</a></pre>
+      </form>
+    </main>
+<%- include('../includes/end.ejs') %>

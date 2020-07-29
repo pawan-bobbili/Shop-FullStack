@@ -1,0 +1,18 @@
+<%- include('../includes/head.ejs') %>
+</head>
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+      <form action = '/newpass' method = "POST">
+            <input type = "hidden" name="token" value = "<%= token %>">
+            <input type = "hidden" name = "_csrf" value = "<%= csrfToken %>">
+        <div>
+            New Password<pre></pre><input type = "password" name = "key1">
+        </div>
+        <div>
+            Confirm Password<pre></pre><input type = "text" name = "key">
+        </div>
+        <button type="submit">Change Password</button>
+      </form>
+    </main>
+<%- include('../includes/end.ejs') %>
